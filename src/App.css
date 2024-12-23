@@ -1,38 +1,166 @@
-.App {
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f9f3e8; /* Light beige background */
+  color: #333; /* Dark text for contrast */
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+  padding: 20px;
+  background-color: #fff; /* White background for content */
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  overflow-x: auto; /* Enables horizontal scrolling on smaller screens */
+}
+
+h1 {
   text-align: center;
+  color: #d4af37; /* Gold color */
+  font-size: 2.5em;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+p {
+  text-align: center;
+  font-size: 1.2em;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+input[type='text'],
+input[type='number'],
+input[type='tel'],
+input[type='datetime-local'] {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #d4af37; /* Gold border */
+  border-radius: 5px;
+  width: calc(100% - 22px);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+input[type='text']:focus,
+input[type='number']:focus,
+input[type='tel']:focus,
+input[type='datetime-local']:focus {
+  outline: none;
+  border-color: #a67c2e; /* Darker gold on focus */
+}
+
+button {
+  background-color: #d4af37; /* Gold button */
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+button:hover {
+  background-color: #a67c2e; /* Darker gold on hover */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table th,
+table td {
+  border: 1px solid #d4af37; /* Gold border for table */
+  padding: 10px;
+}
+
+table th {
+  background-color: #d4af37; /* Gold header */
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+table tr:nth-child(even) {
+  background-color: #f2f2f2; /* Light gray for even rows */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.7); /* Dark overlay */
+}
+
+.modal-content {
+  background-color: #fff; /* White background for modal */
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2em; /* Slightly smaller header text for smaller screens */
   }
-  to {
-    transform: rotate(360deg);
+
+  table th,
+  table td {
+    padding: 8px; /* Reduced padding for table cells */
+  }
+
+  table th {
+    font-size: 0.9em; /* Smaller font size for table headers */
+  }
+
+  table td {
+    font-size: 0.9em; /* Smaller font size for table data */
+  }
+
+  .container {
+    width: 100%; /* Full width container on smaller screens */
+    padding: 15px; /* Reduced padding for smaller screens */
+  }
+
+  input[type='text'],
+  input[type='number'],
+  input[type='tel'],
+  input[type='datetime-local'] {
+    width: 100%; /* Full-width inputs */
+  }
+
+  button {
+    width: 100%; /* Full-width buttons */
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.8em; /* Even smaller header on very small screens */
+  }
+
+  table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling for touch devices */
+  }
+
+  table th,
+  table td {
+    display: block;
+    text-align: right;
+    padding: 10px;
+    width: 100%;
+  }
+
+  table td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    display: inline-block;
+    width: 50%; /* Label width for mobile */
   }
 }
